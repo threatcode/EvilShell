@@ -12,6 +12,6 @@ setup(
     url='https://github.com/threatcode/EvilShell',
     author='ThreatCode',
     author_email='ThreatCode@github.com',
-    license='MIT',
+    license='GPL-3.0',
     packages=find_packages(),
 )

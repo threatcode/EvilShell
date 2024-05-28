@@ -10,17 +10,17 @@ EvilShell - Weaponized web shell
 ## Usage
 
 ```
-weevely generate <password> <path>
-weevely <URL> <password> [cmd]
+evilshell generate <password> <path>
+evilshell <URL> <password> [cmd]
 ```
   
 ## Description
 
 EvilShell is a web shell designed for post-exploitation purposes that can be extended over the network at runtime.
 
-Upload weevely PHP agent to a target web server to get remote shell access to it. It has more than 30 modules to assist administrative tasks, maintain access, provide situational awareness, elevate privileges, and spread into the target network.
+Upload evilshell PHP agent to a target web server to get remote shell access to it. It has more than 30 modules to assist administrative tasks, maintain access, provide situational awareness, elevate privileges, and spread into the target network.
 
-Read the [Install](https://github.com/threatcode/evilshell/wiki/Install) page to install weevely and its dependencies.
+Read the [Install](https://github.com/threatcode/evilshell/wiki/Install) page to install evilshell and its dependencies.
 
 Read the [Getting Started](https://github.com/threatcode/evilshell/wiki/Getting-Started) page to generate an agent and connect to it.
 

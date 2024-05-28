@@ -1,6 +1,13 @@
 name: CI EvilShell
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - opened
+      - synchronize
 
 jobs:
   build:
@@ -19,10 +26,3 @@ jobs:
           
       - name: Additional libraries for testing
         run: pip install testfixtures coverage pexpect paramiko
-
-      - name: Add unprivileged testuser:testuser user
-        run: |
-          sudo echo 'testuser:$1$xyz$iqgi.17OXQwhicZgFC1OZ.:1001:1002:,,,:/home/testuser:/bin/bash' >> /etc/passwd
-          sudo mkdir -p /home/testuser
-          sudo chown testuser:users /home/testuser
-          phpenmod ssh2

@@ -17,5 +17,12 @@ jobs:
           sudo apt-get install -y python3 python3-pip curl
           sudo pip3 install -r requirements.txt --upgrade
           
-      - name: test run
-        run: python3 evilshell.py -h
+      - name: Additional libraries for testing
+        run: pip install testfixtures coverage pexpect paramiko
+
+      - name: Add unprivileged testuser:testuser user
+        run: |
+          echo 'testuser:$1$xyz$iqgi.17OXQwhicZgFC1OZ.:1001:1002:,,,:/home/testuser:/bin/bash' >> /etc/passwd
+          mkdir -p /home/testuser
+          chown testuser:users /home/testuser
+          phpenmod ssh2

@@ -1,6 +1,6 @@
 prettytable
 Mako
-PyYAML
+PyYAML==6.0.2
 python-dateutil
 PySocks
 pyOpenSSL

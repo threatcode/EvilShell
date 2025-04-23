@@ -1,4 +1,3 @@
-setuptools
 prettytable
 Mako
 PyYAML==6.0.2

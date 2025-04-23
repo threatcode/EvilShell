@@ -1,4 +1,5 @@
 name: CI EvilShell
+
 on:
   workflow_dispatch:
   push:
@@ -12,17 +13,33 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'  # adjust to your version if needed
 
-      - name: Install build dependencies
+      - name: Upgrade pip and install build tools
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install build installer
+
+      - name: Install project dependencies
         run: |
           python3 -m pip install -r requirements.txt
-          python3 setup.py install
-          
-      - name: Additional libraries for testing
-        run: pip install testfixtures coverage pexpect paramiko
+
+      - name: Build the project
+        run: |
+          python3 -m build
+
+      - name: Install the built wheel
+        run: |
+          python3 -m installer dist/*.whl
+
+      - name: Install additional libraries for testing
+        run: |
+          pip install testfixtures coverage pexpect paramiko

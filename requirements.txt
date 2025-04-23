@@ -5,3 +5,4 @@ PyYAML==6.0.2
 python-dateutil
 PySocks
 pyOpenSSL
+telnetlib @ git+https://github.com/forkwork/telnetlib.git
